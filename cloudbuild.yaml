@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/npm:current'
+  args: ['install']
+- name: 'sdrik/cloud-builders-npm:latest'
+  args: ['run', 'test-headless']
+- name: 'gcr.io/cloud-builders/npm:current'
+  args: ['run', 'build', '--prod']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']

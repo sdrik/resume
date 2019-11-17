@@ -1,0 +1,34 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /(.*\.css)
+  static_files: dist/sdrik-resume/\1
+  upload: dist/sdrik-resume/(.*\.css)
+  
+- url: /(.*\.html)
+  static_files: dist/sdrik-resume/\1
+  upload: dist/sdrik-resume/(.*\.html)
+
+- url: /(.*\.js)
+  static_files: dist/sdrik-resume/\1
+  upload: dist/sdrik-resume/(.*\.js)
+
+- url: /(.*\.ico)
+  static_files: dist/sdrik-resume/\1
+  upload: dist/sdrik-resume/(.*\.ico)
+
+# Site root.
+- url: /
+  static_files: dist/sdrik-resume/index.html
+  upload: dist/sdrik-resume/index.html
+
+# Catch-all rule, responsible from handling Angular application routes (deeplinks).
+- url: /.*
+  static_files: dist/sdrik-resume/index.html
+  upload: dist/sdrik-resume/index.html
+
+skip_files:
+- ^(?!dist)
